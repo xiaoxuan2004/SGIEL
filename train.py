@@ -378,7 +378,8 @@ def train(epoch):
         # 随机得到cutmix处理的概率
         cutmix_prob = np.random.rand(1)
         # 若cutmix_prob概率小于0.2 则进行cutmix操作
-        if cutmix_prob < 0.2:
+        # 改成0.3试一下！
+        if cutmix_prob < 0.3:
             # generate mixed sample
             #     x1,x2cat拼接得到x,x1_shape,x2_shape cat拼接得到x
             x = torch.cat((x1, x2), 0)

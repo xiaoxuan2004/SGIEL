@@ -115,17 +115,30 @@ class SYSUData(data.Dataset):
         # 可见光图像和标签SYS
         # np.load()是NumPy的函数，用于从.npy文件中加载数组数据。
         # npy是NumPy的专有二进制格式，能够高效地存储数组数据。该函数会将.npy文件中的数据加载为一个NumPy数组。
-        train_color_image = np.load(data_dir + 'train_rgb_resized_img.npy')
-        self.train_color_label = np.load(data_dir + 'train_rgb_resized_label.npy')
+        # train_color_image = np.load(data_dir + 'train_rgb_resized_img.npy')
+        # self.train_color_label = np.load(data_dir + 'train_rgb_resized_label.npy')
+        # # 红外图像和标签
+        # train_thermal_image = np.load(data_dir + 'train_ir_resized_img.npy')
+        # self.train_thermal_label = np.load(data_dir + 'train_ir_resized_label.npy')
+        # # 可见光身形图像和标签
+        # train_color_image_shape = np.load(data_dir1 + 'train_rgb_resized_img.npy')
+        # self.train_color_label_shape = np.load(data_dir1 + 'train_rgb_resized_label.npy')
+        # # 红外身形图像和标签
+        # train_thermal_image_shape = np.load(data_dir1 + 'train_ir_resized_img.npy')
+        # self.train_thermal_label_shape = np.load(data_dir1 + 'train_ir_resized_label.npy')
+
+        # 注意 修改了 多了一个new
+        train_color_image = np.load(data_dir + 'train_rgb_resized_img_new.npy')
+        self.train_color_label = np.load(data_dir + 'train_rgb_resized_label_new.npy')
         # 红外图像和标签
-        train_thermal_image = np.load(data_dir + 'train_ir_resized_img.npy')
-        self.train_thermal_label = np.load(data_dir + 'train_ir_resized_label.npy')
+        train_thermal_image = np.load(data_dir + 'train_ir_resized_img_new.npy')
+        self.train_thermal_label = np.load(data_dir + 'train_ir_resized_label_new.npy')
         # 可见光身形图像和标签
-        train_color_image_shape = np.load(data_dir1 + 'train_rgb_resized_img.npy')
-        self.train_color_label_shape = np.load(data_dir1 + 'train_rgb_resized_label.npy')
+        train_color_image_shape = np.load(data_dir1 + 'train_rgb_resized_img_new.npy')
+        self.train_color_label_shape = np.load(data_dir1 + 'train_rgb_resized_label_new.npy')
         # 红外身形图像和标签
-        train_thermal_image_shape = np.load(data_dir1 + 'train_ir_resized_img.npy')
-        self.train_thermal_label_shape = np.load(data_dir1 + 'train_ir_resized_label.npy')
+        train_thermal_image_shape = np.load(data_dir1 + 'train_ir_resized_img_new.npy')
+        self.train_thermal_label_shape = np.load(data_dir1 + 'train_ir_resized_label_new.npy')
         print(train_color_image.shape, train_color_image_shape.shape)
         print(train_thermal_image.shape, train_thermal_image_shape.shape)
 

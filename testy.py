@@ -39,7 +39,8 @@ parser.add_argument('--mode', default='all', type=str, help='all or indoor')
 parser.add_argument('--date', default='')
 parser.add_argument('--gpuversion', default= '3090', type=str)
 path_dict = {}
-path_dict['3090'] = ['/home/share/reid_dataset/SYSU-MM01/', '/home/share/fengjw/SYSU_MM01_SHAPE/']
+# path_dict['3090'] = ['/home/share/reid_dataset/SYSU-MM01/', '/home/share/fengjw/SYSU_MM01_SHAPE/']
+path_dict['3090'] = ['/home/XXiao/reid_dataset/SYSU-MM01/', '/home/XXiao/reid_dataset/SYSU_MM01_SHAPE/']
 path_dict['4090'] = ['/home/jiawei/data/SYSU-MM01/', '/home/jiawei/data/SYSU_MM01_SHAPE/']
 args = parser.parse_args()
 os.environ['CUDA_VISIBLE_DEVICES'] = args.gpu
@@ -148,7 +149,8 @@ net.to(device)
 # 代码中调用了 process_gallery_sys函数，在每次 trial 中，它会根据指定的 trial 参数重新生成 gallery 数据集。
 # 由于每次生成的测试数据集（尤其是 gallery 集合）不同，这使得每个 trial 的测试结果也会有所差异。通过多次 trial，可以评估模型的性能是否稳定。
 # best two
-net_path = 'save_model/sysu_step2085_p0.2intercutmix_bothcegkl_gradclip11.0_seed3_KL_1.0_p4_n8_lr_0.1_seed_3_ema_best.t'
+# net_path = 'save_model/sysu_step2085_p0.2intercutmix_bothcegkl_gradclip11.0_seed3_KL_1.0_p4_n8_lr_0.1_seed_3_ema_best.t'
+net_path=net_path = args.resume
 
 net.load_state_dict(torch.load(net_path)['net'])
 net.eval()
